@@ -1,3 +1,5 @@
+# this is our map of the app, says where each link should route to
+
 SampleApp::Application.routes.draw do
   get "users/new"
 
