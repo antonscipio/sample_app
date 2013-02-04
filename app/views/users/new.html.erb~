@@ -6,7 +6,7 @@
 <div class="row">
   <div class="span6 offset3">
     <%= form_for(@user) do |f| %>
-      <%# this line is to render a error message (we had to create a shared directory then error_messages file %>
+      <%# this line is to render a error message (we had to create a shared directory then error_messages file in the apps/view %>
       <%= render 'shared/error_messages' %>
     
       <%= f.label :name %>
