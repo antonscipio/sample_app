@@ -9,10 +9,15 @@
 </head>
 <body>
   <%= render 'layouts/header' %>
-  </header>
   <div class="container">
+    <%# this line adds the success or failed to all the pages if needed %>
+    <% flash.each do |key, value| %>
+      <div class="alert alert-<%= key %>"><%= value %></div>
+    <% end %>
     <%= yield %>
     <%= render 'layouts/footer' %>
+    <%# below is a debug code thats show useful info on the page (if ..? means it only shows up in development mode %>
+    <%= debug(params) if Rails.env.development? %>
   </div>
 </body>
 </html>

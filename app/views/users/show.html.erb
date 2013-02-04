@@ -1,0 +1,16 @@
+<%# created this page manually, its the page that shows a users profile, then i create the show method in the users_controller.rb class %>
+
+<%# this adds a title to the show page %>
+<% provide(:title, @user.name) %>
+<%# this adds a sidebar to the show page using the aside tag %>
+<div class="row">
+  <aside class="span4">
+    <section>
+<h1>
+  <%# this gravatar links a avatar image to the users email %>
+  <%= gravatar_for @user %>
+  <%= @user.name %>
+</h1>
+</section>
+</aside>
+</div>

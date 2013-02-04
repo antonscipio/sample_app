@@ -1,3 +1,5 @@
+
+
 module ApplicationHelper
 
   # Returns a full title on a per-page basis.

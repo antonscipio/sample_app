@@ -49,8 +49,10 @@ gem 'jquery-rails', '2.0.2'
 # gem 'debugger'
 
 # capybara helps us mimic user input
+# factory girl is used to produce user ojects and put them in the db. this is used when testing the user show page
 group :test do
   gem 'capybara', '1.1.2'
+  gem 'factory_girl_rails', '4.1.0'
 end
 
 # postgresql

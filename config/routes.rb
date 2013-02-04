@@ -1,7 +1,9 @@
 # this is our map of the app, says where each link should route to
 
 SampleApp::Application.routes.draw do
-  get "users/new"
+  # adds a user resource so you can view a users profile e.g/user/1
+  # removes get "users/new"
+  resources :users 
 
   root to: 'static_pages#home'
 
