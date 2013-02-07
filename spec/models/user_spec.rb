@@ -21,6 +21,7 @@ describe User do
   # subject lets us use it insted of having to write @user over n over
   subject { @user }
 
+
   it { should respond_to(:name) }
   it { should respond_to(:email) }
   it { should respond_to(:password_digest) }
@@ -29,6 +30,7 @@ describe User do
   it { should respond_to(:password_confirmation) }
 
   it { should be_valid }
+  it { should respond_to(:remember_token) }
   
   # to test whether a user logging in authenticates with db
   it { should respond_to(:authenticate) }
@@ -68,6 +70,11 @@ describe User do
       
       it { should_not == user_for_invalid_password }
       specify { user_for_invalid_password.should be_false }
+    end
+
+    describe "remember token" do
+      before { @user.save }
+      its(:remember_token) { should_not be_blank }
     end
   end
 end

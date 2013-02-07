@@ -17,6 +17,7 @@ class User < ActiveRecord::Base
 
   # this changes the inputted email in lowercase b4 its saved in db
   before_save { |user| user.email = email.downcase }
+  before_save :create_remember_token
 
   # validates uniqueness of name and email, users a regxp to make sure the email matches the email format. Use this
   validates :name, presence: true, length: { maximum: 50 }
@@ -26,4 +27,9 @@ class User < ActiveRecord::Base
   # this validates the there is an actual password there
   validates :password, presence: true, length: { minimum: 6 }
   validates :password_confirmation, presence: true
+
+  private 
+    def create_remember_token
+      self.remember_token = SecureRandom.urlsafe_base64
+    end
 end

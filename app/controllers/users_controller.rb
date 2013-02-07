@@ -12,6 +12,8 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
     if @user.save
+      # this signs the user in straigt after registering
+      sign_in @user
       # Handle a succesful save.
       # flash relates to application.html.erb
       flash[:success] = "Welcome to the sample App!"
